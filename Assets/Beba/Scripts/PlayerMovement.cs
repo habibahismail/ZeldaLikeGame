@@ -19,8 +19,12 @@ namespace bebaSpace
         {
             playerRigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
-            updateMove = false;
+
             playerstate = PlayerState.Walk;
+            updateMove = false;
+
+            animator.SetFloat("moveX", 0);
+            animator.SetFloat("moveY", -1);
         }
 
         private void Update()
@@ -29,9 +33,8 @@ namespace bebaSpace
             change.x = Input.GetAxisRaw("Horizontal");
             change.y = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetMouseButtonDown(0) && playerstate != PlayerState.Attack)
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) && playerstate != PlayerState.Attack)
             {
-                Debug.Log(updateMove);
                 StartCoroutine(Attack());
 
             }else if (playerstate == PlayerState.Walk)
@@ -67,6 +70,7 @@ namespace bebaSpace
 
         private void MoveCharacter()
         {
+            change.Normalize();
             playerRigidBody.MovePosition(transform.position + change * speed * Time.deltaTime);
         }
 
