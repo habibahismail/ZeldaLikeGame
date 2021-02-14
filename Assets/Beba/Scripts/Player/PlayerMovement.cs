@@ -14,13 +14,14 @@ namespace bebaSpace
         private PlayerState playerstate;
         private bool updateMove;
 
+        public PlayerState Playerstate { get => playerstate; set => playerstate = value; }
 
         private void Start()
         {
             playerRigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
 
-            playerstate = PlayerState.Walk;
+            Playerstate = PlayerState.Idle;
             updateMove = false;
 
             animator.SetFloat("moveX", 0);
@@ -33,11 +34,11 @@ namespace bebaSpace
             change.x = Input.GetAxisRaw("Horizontal");
             change.y = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) && playerstate != PlayerState.Attack)
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) && Playerstate != PlayerState.Attack && Playerstate != PlayerState.Stagger)
             {
                 StartCoroutine(Attack());
 
-            }else if (playerstate == PlayerState.Walk)
+            }else if (Playerstate == PlayerState.Walk || Playerstate == PlayerState.Idle)
             {
                 updateMove = true;
             }
@@ -46,7 +47,7 @@ namespace bebaSpace
 
         private void FixedUpdate()
         {
-            if (updateMove && playerstate != PlayerState.Attack)
+            if (updateMove && Playerstate != PlayerState.Attack)
             {
                 UpdateAnimationAndMove();
                 updateMove = false;
@@ -61,10 +62,12 @@ namespace bebaSpace
                 animator.SetFloat("moveX", change.x);
                 animator.SetFloat("moveY", change.y);
                 animator.SetBool("isMoving", true);
+                playerstate = PlayerState.Walk;
             }
             else
             {
                 animator.SetBool("isMoving", false);
+                playerstate = PlayerState.Idle;
             }
         }
 
@@ -77,11 +80,29 @@ namespace bebaSpace
         private IEnumerator Attack()
         {
             animator.SetTrigger("attack");
-            playerstate = PlayerState.Attack;
+            Playerstate = PlayerState.Attack;
             yield return new WaitForSeconds(0.3f);
-            playerstate = PlayerState.Walk;
+            Playerstate = PlayerState.Walk;
+        }
+
+        private IEnumerator Knockback(float knockTime)
+        {
+            if (playerRigidBody != null)
+            {
+                yield return new WaitForSeconds(knockTime);
+
+                Playerstate = PlayerState.Idle;
+                playerRigidBody.velocity = Vector2.zero;
+            }
+        }
+
+
+
+        public void KnockbackPlayer(float knockTime)
+        {
+            StartCoroutine(Knockback(knockTime));
         }
     }
 
-    public enum PlayerState { Walk, Attack, Interact }
+    public enum PlayerState { Idle, Walk, Attack, Interact, Stagger }
 }
