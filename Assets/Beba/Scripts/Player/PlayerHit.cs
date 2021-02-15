@@ -11,7 +11,10 @@ namespace bebaSpace
 
             if (damageable != null)
             {
-                damageable.TakeDamage(1);
+
+                if(collision.CompareTag("Breakable") || (collision.CompareTag("Enemy") && collision.isTrigger))
+                    damageable.TakeDamage(1);
+
             }
 
 

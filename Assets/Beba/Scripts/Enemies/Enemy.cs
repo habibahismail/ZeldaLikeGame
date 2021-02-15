@@ -3,18 +3,24 @@ using UnityEngine;
 
 namespace bebaSpace
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour, IDamageable
     {
-        [SerializeField] protected int health;
+        [SerializeField] protected float health;
+        [SerializeField] protected float moveSpeed = 1.5f;
         [SerializeField] protected string enemyName;
         [SerializeField] protected int baseAttack;
-        [SerializeField] protected float moveSpeed = 1.5f;
+
+        [SerializeField] protected FloatValue maxHealth;
+
+        protected Animator animator;
 
         public EnemyState CurrentState { get; set; }
 
         protected virtual void Start()
         {
             CurrentState = EnemyState.Idle;
+            animator = GetComponent<Animator>();
+            health = maxHealth.InitialValue;
         }
 
         protected void ChangeState(EnemyState newState)
@@ -31,7 +37,7 @@ namespace bebaSpace
             {
                 yield return new WaitForSeconds(knockTime);
 
-                rb.GetComponent<Enemy>().CurrentState = EnemyState.Idle;
+                rb.GetComponent<Enemy>().ChangeState(EnemyState.Idle);
                 rb.velocity = Vector2.zero;
             }
         }
@@ -39,6 +45,15 @@ namespace bebaSpace
         public void Knockback(Rigidbody2D rb, float knockTime)
         {
             StartCoroutine(KnockbackEnemy(rb, knockTime));
+        }
+
+        public void TakeDamage(float damage)
+        {
+            health -= damage;
+            if(health <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 

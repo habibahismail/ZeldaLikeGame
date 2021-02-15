@@ -8378,9 +8378,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
+  moveSpeed: 1.5
   enemyName: Sleepy Log
   baseAttack: 1
-  moveSpeed: 1.5
+  maxHealth: {fileID: 11400000, guid: 9e56f08106af2304b93dfb058d9cf4da, type: 2}
   homePosition: {fileID: 0}
   chaseRadius: 4
   attackRadius: 1.2
@@ -8578,7 +8579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341992880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000023841858, y: -0.00000011920929, z: -10}
+  m_LocalPosition: {x: 0.00000047683716, y: -0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8768,7 +8769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429065729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000023841858, y: -0.00000011920929, z: -10}
+  m_LocalPosition: {x: 0.00000047683716, y: -0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 259708412}
@@ -16397,7 +16398,6 @@ GameObject:
   - component: {fileID: 2003597094}
   - component: {fileID: 2003597093}
   - component: {fileID: 2003597095}
-  - component: {fileID: 2003597096}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -16579,20 +16579,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6726495, y: 0.9474423}
   m_EdgeRadius: 0
---- !u!114 &2003597096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003597088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85db8538a71b774c985152bef83d770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust: 2.7
-  knockTime: 0.2
 --- !u!1 &2062427334
 GameObject:
   m_ObjectHideFlags: 0
@@ -16693,6 +16679,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: breakable_pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335605019756140979, guid: 3c83b5eb94b4c964f9b735f3e7039379,
+        type: 3}
+      propertyPath: m_TagString
+      value: Breakable
       objectReference: {fileID: 0}
     - target: {fileID: 4335605019756140983, guid: 3c83b5eb94b4c964f9b735f3e7039379,
         type: 3}

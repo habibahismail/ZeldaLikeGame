@@ -24,20 +24,40 @@ namespace bebaSpace
 
                         Enemy enemy = hit.gameObject.GetComponent<Enemy>();
 
-                        enemy.CurrentState = EnemyState.Stagger;
-                        enemy.Knockback(hit, knockTime);
+                        if (enemy.isActiveAndEnabled)
+                        {
+                            enemy.CurrentState = EnemyState.Stagger;
+                            enemy.Knockback(hit, knockTime);
+                        }
+                        
                     }
 
                     if (hit.CompareTag("Player"))
                     {
                         PlayerMovement player = hit.gameObject.GetComponent<PlayerMovement>();
+
                         player.Playerstate = PlayerState.Stagger;
                         player.KnockbackPlayer(knockTime);
+                        //TakeDamage(collision);
                     }
                     
                 }
             }
 
+        }
+
+        private void TakeDamage(Collider2D collider)
+        {
+            IDamageable damageable = collider.GetComponent<IDamageable>();
+
+            if (damageable != null)
+            {
+                if (collider.CompareTag("Player") && collider.isTrigger)
+                {
+                    damageable.TakeDamage(1);
+                }
+
+            }
         }
 
        
