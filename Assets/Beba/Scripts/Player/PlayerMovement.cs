@@ -6,6 +6,8 @@ namespace bebaSpace
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float speed;
+        [SerializeField] private FloatValue currentHealth;
+        [SerializeField] private Signal playerHealthSignal;
 
         private Rigidbody2D playerRigidBody;
         private Animator animator;
@@ -91,17 +93,26 @@ namespace bebaSpace
             {
                 yield return new WaitForSeconds(knockTime);
 
-                Playerstate = PlayerState.Idle;
                 playerRigidBody.velocity = Vector2.zero;
+                Playerstate = PlayerState.Idle;
             }
         }
 
 
 
-        public void KnockbackPlayer(float knockTime)
+        public void KnockbackPlayer(float knockTime, float damage)
         {
-            StartCoroutine(Knockback(knockTime));
+
+            currentHealth.InitialValue -= damage;
+
+            if (currentHealth.InitialValue > 0)
+            {
+                playerHealthSignal.Raise();
+                StartCoroutine(Knockback(knockTime));
+            }
         }
+
+       
     }
 
     public enum PlayerState { Idle, Walk, Attack, Interact, Stagger }
