@@ -98,8 +98,6 @@ namespace bebaSpace
             }
         }
 
-
-
         public void KnockbackPlayer(float knockTime, float damage)
         {
 
@@ -110,9 +108,7 @@ namespace bebaSpace
                 playerHealthSignal.Raise();
                 StartCoroutine(Knockback(knockTime));
             }
-        }
-
-       
+        } 
     }
 
     public enum PlayerState { Idle, Walk, Attack, Interact, Stagger }
