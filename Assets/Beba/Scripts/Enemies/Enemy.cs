@@ -37,8 +37,10 @@ namespace bebaSpace
             {
                 yield return new WaitForSeconds(knockTime);
 
+                rb.velocity = Vector2.zero;
                 rb.GetComponent<Enemy>().ChangeState(EnemyState.Idle);
                 rb.velocity = Vector2.zero;
+
             }
         }
 

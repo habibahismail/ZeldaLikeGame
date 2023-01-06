@@ -448,10 +448,10 @@ TextureImporter:
     second: objects_147
   - first:
       213: -8109198643628229234
-    second: objects_148
+    second: dotdot_bubble_00
   - first:
       213: -2259560379276473009
-    second: objects_149
+    second: dotdot_bubble_01
   - first:
       213: -5175949742722794615
     second: objects_150
@@ -487,10 +487,10 @@ TextureImporter:
     second: objects_160
   - first:
       213: 907700638741623525
-    second: objects_161
+    second: dotdot_bubble_02
   - first:
       213: 177094562640940995
-    second: objects_162
+    second: dotdot_bubble_03
   - first:
       213: -6185587077600911912
     second: pot_01
@@ -529,10 +529,10 @@ TextureImporter:
     second: objects_174
   - first:
       213: -5210384475397050505
-    second: objects_175
+    second: exclamation_bubble
   - first:
       213: -2939925624408339868
-    second: objects_176
+    second: questionMark_bubble
   - first:
       213: -3617914728586858117
     second: objects_177
@@ -1004,8 +1004,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -4167,7 +4167,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_148
+      name: dotdot_bubble_00
       rect:
         serializedVersion: 2
         x: 32
@@ -4188,7 +4188,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_149
+      name: dotdot_bubble_01
       rect:
         serializedVersion: 2
         x: 48
@@ -4251,7 +4251,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_161
+      name: dotdot_bubble_02
       rect:
         serializedVersion: 2
         x: 32
@@ -4272,7 +4272,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_162
+      name: dotdot_bubble_03
       rect:
         serializedVersion: 2
         x: 48
@@ -4440,7 +4440,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_175
+      name: exclamation_bubble
       rect:
         serializedVersion: 2
         x: 32
@@ -4461,7 +4461,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_176
+      name: questionMark_bubble
       rect:
         serializedVersion: 2
         x: 48

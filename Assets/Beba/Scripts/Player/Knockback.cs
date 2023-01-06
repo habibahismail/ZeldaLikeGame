@@ -6,6 +6,7 @@ namespace bebaSpace
     {
         [SerializeField] private float thrust = 5f;
         [SerializeField] private float knockTime = 0.4f;
+        [SerializeField] private float damage = 1f;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -39,7 +40,7 @@ namespace bebaSpace
                         if(player.Playerstate != PlayerState.Stagger)
                         {
                             player.Playerstate = PlayerState.Stagger;
-                            player.KnockbackPlayer(knockTime, 1f);
+                            player.KnockbackPlayer(knockTime, damage);
                             
                         }
 

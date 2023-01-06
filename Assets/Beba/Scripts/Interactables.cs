@@ -10,6 +10,8 @@ namespace bebaSpace
         [SerializeField] private TMP_Text dialogLinePlaceholder;
         [SerializeField] private CanvasGroup dialogCanvas;
         [SerializeField] private string dialogText;
+        [SerializeField] private Signal contextOn;
+        [SerializeField] private Signal contextOff;
 
         private bool playerInRange = false;
         private bool isInteracting = false;
@@ -46,6 +48,7 @@ namespace bebaSpace
             if (collision.CompareTag("Player"))
             {
                 playerInRange = true;
+                contextOn.Raise();
             }
         }
 
@@ -54,6 +57,7 @@ namespace bebaSpace
             if (collision.CompareTag("Player"))
             {
                 playerInRange = false;
+                contextOff.Raise();
             }
         }
 

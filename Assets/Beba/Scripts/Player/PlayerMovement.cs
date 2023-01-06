@@ -8,6 +8,7 @@ namespace bebaSpace
         [SerializeField] private float speed;
         [SerializeField] private FloatValue currentHealth;
         [SerializeField] private Signal playerHealthSignal;
+        [SerializeField] private VectorValue startingPosition;
 
         private Rigidbody2D playerRigidBody;
         private Animator animator;
@@ -28,6 +29,8 @@ namespace bebaSpace
 
             animator.SetFloat("moveX", 0);
             animator.SetFloat("moveY", -1);
+
+            transform.position = startingPosition.InitialValue;
         }
 
         private void Update()
@@ -95,18 +98,24 @@ namespace bebaSpace
 
                 playerRigidBody.velocity = Vector2.zero;
                 Playerstate = PlayerState.Idle;
+                playerRigidBody.velocity = Vector2.zero;
             }
         }
 
         public void KnockbackPlayer(float knockTime, float damage)
         {
 
-            currentHealth.InitialValue -= damage;
+            currentHealth.RunTimeValue -= damage;
+            playerHealthSignal.Raise();
 
-            if (currentHealth.InitialValue > 0)
+            if (currentHealth.RunTimeValue > 0)
             {
-                playerHealthSignal.Raise();
+                
                 StartCoroutine(Knockback(knockTime));
+            }
+            else
+            {
+                gameObject.SetActive(false);
             }
         } 
     }
