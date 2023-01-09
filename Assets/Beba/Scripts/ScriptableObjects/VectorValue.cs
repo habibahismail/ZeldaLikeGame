@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+namespace bebaSpace { 
 [CreateAssetMenu]
 public class VectorValue : ScriptableObject, ISerializationCallbackReceiver
 {
@@ -15,4 +16,5 @@ public class VectorValue : ScriptableObject, ISerializationCallbackReceiver
     {
        
     }
+}
 }

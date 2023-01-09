@@ -1,18 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+namespace bebaSpace { 
 public class ContextClue : MonoBehaviour
 {
     [SerializeField] private GameObject contextClue;
+    
+    private bool contextActive = false;
 
-    public void Enable()
+    public void ChangeContext()
     {
-        contextClue.SetActive(true);
-    }
+        contextActive = !contextActive;
 
-    public void Disable()
-    {
-        contextClue.SetActive(false);
+        if (contextActive)
+        {
+            contextClue.SetActive(true);
+        }
+        else
+        {
+            contextClue.SetActive(false);
+        }
     }
+  
+}
 }
