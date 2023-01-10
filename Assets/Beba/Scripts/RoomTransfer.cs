@@ -30,12 +30,13 @@ namespace bebaSpace
 
             if (collision.CompareTag("Player"))
             {
+                
                 //move camera bound according to where the next room is position from the current room
                 switch (nextRoomPosition)
                 {
                     case RoomPosition.Up:
 
-                        newCameraBoundPos.y += 21;
+                        newCameraBoundPos.y += 27;
                         cameraContainer.transform.position += newCameraBoundPos;
 
                         collision.transform.position += new Vector3(0, 2, 0);
@@ -43,7 +44,7 @@ namespace bebaSpace
 
                     case RoomPosition.Down:
                       
-                        newCameraBoundPos.y -= 21;
+                        newCameraBoundPos.y -= 27;
                         cameraContainer.transform.position += newCameraBoundPos;
 
                         collision.transform.position += new Vector3(0, -2, 0);

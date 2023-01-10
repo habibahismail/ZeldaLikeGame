@@ -2859,7 +2859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: AmanVillage
   playerStorage: {fileID: 11400000, guid: cb222e6e4fc70784a8c0ffdfc2c999f5, type: 2}
-  playerPosition: {x: -8.46, y: 3.46}
+  playerPosition: {x: -11.3, y: 3.9}
   fadeInPanel: {fileID: 4323602139526729517, guid: 2ac98257ee2bda94ab9d80d1840d96e4,
     type: 3}
   fadeOutPanel: {fileID: 6731235117068154178, guid: 58a4f34239e19724c8c3ddd7321958cf,
@@ -3026,7 +3026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861286863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000023841858, y: -0.00000011920929, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

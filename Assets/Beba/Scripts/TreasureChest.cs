@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace bebaSpace { 
 public class TreasureChest : Interactables
@@ -9,7 +7,7 @@ public class TreasureChest : Interactables
         [SerializeField] private Inventory playerInventory;  
         [SerializeField] private Signal raiseItem;
 
-        [SerializeField] private bool isOpen;
+        private bool isOpen;
         private Animator anim;
 
         private void Start()
@@ -19,7 +17,7 @@ public class TreasureChest : Interactables
 
         protected override void Update()
         {
-            if (Input.anyKey && dialogBoxIsShowing)
+            if (Input.anyKey && dialogBoxIsShowing && isInteracting)
             {
                 StartCoroutine(ShowDialogBox(false));
                 dialogLinePlaceholder.text = "";
@@ -49,13 +47,14 @@ public class TreasureChest : Interactables
                 }
 
                 anim.SetTrigger("openChest");
-
+                
                 playerInventory.AddItem(contents);
                 playerInventory.currentItem = contents;
+                raiseItem.Raise();
 
                 contextSignal.Raise();
                 playerInRange = false;
-                raiseItem.Raise();
+                
             }
 
         }

@@ -57,7 +57,7 @@ namespace bebaSpace
 
         private void FixedUpdate()
         {
-            if (updateMove && Playerstate != PlayerState.Attack)
+            if (updateMove && Playerstate != PlayerState.Attack && playerstate != PlayerState.Interact)
             {
                 UpdateAnimationAndMove();
                 updateMove = false;
@@ -84,7 +84,7 @@ namespace bebaSpace
         private void MoveCharacter()
         {
             change.Normalize();
-            playerRigidBody.MovePosition(transform.position + change * speed * Time.deltaTime);
+            playerRigidBody.MovePosition(transform.position + speed * Time.deltaTime * change);
         }
 
         private IEnumerator Attack()
@@ -130,7 +130,7 @@ namespace bebaSpace
 
         public void RaiseItem()
         {
-            if(playerInventory.currentItem != null)
+            if (playerInventory.currentItem != null)
             {
                 if (playerstate != PlayerState.Interact)
                 {
@@ -148,7 +148,7 @@ namespace bebaSpace
                   
                 }
             }
-            
+
         }
     }
 

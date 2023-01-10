@@ -5,13 +5,13 @@ namespace bebaSpace
     public class E_log : Enemy
     {
 
-        [SerializeField] private Transform homePosition;
-        [SerializeField] private float chaseRadius = 4f;
-        [SerializeField] private float attackRadius = 2f;
+        [SerializeField] protected Transform homePosition;
+        [SerializeField] protected float chaseRadius = 4f;
+        [SerializeField] protected float attackRadius = 2f;
 
-        private Rigidbody2D rb;
+        protected Rigidbody2D rb;
 
-        private Transform target;
+        protected Transform target;
 
         protected override void Start()
         {
@@ -19,6 +19,7 @@ namespace bebaSpace
 
             target = GameObject.FindGameObjectWithTag("Player").transform;
             rb = GetComponent<Rigidbody2D>();
+            animator.SetBool("wakeUp", true);
         }
 
         private void FixedUpdate()
@@ -26,7 +27,7 @@ namespace bebaSpace
             CheckDistance();
         }
 
-        private void CheckDistance()
+        protected virtual void CheckDistance()
         {
             if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
                 Vector3.Distance(target.position, transform.position) > attackRadius)
@@ -49,7 +50,7 @@ namespace bebaSpace
             
         }
 
-        private void ChangeAnim(Vector2 direction)
+        protected void ChangeAnim(Vector2 direction)
         {
             if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             {
