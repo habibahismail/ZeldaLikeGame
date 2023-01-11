@@ -9,6 +9,7 @@ namespace bebaSpace
         [SerializeField] protected float moveSpeed = 1.5f;
         [SerializeField] protected string enemyName;
         [SerializeField] protected int baseAttack;
+        [SerializeField] protected GameObject deathEffect;
 
         [SerializeField] protected FloatValue maxHealth;
 
@@ -28,6 +29,15 @@ namespace bebaSpace
             if(CurrentState != newState)
             {
                 CurrentState = newState;
+            }
+        }
+        
+        private void DeathFX()
+        {
+            if(deathEffect != null)
+            {
+                GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+                Destroy(effect, 0.5f);
             }
         }
 
@@ -54,6 +64,7 @@ namespace bebaSpace
             health -= damage;
             if(health <= 0)
             {
+                DeathFX();
                 gameObject.SetActive(false);
             }
         }
