@@ -7,10 +7,13 @@ namespace bebaSpace
     {
         [SerializeField] private float speed;
         [SerializeField] private FloatValue currentHealth;
-        [SerializeField] private Signal playerHealthSignal;
+        
         [SerializeField] private VectorValue startingPosition;
         [SerializeField] private Inventory playerInventory;
         [SerializeField] private SpriteRenderer receivedItemSprite;
+        
+        [SerializeField] private Signal cameraShake;
+        [SerializeField] private Signal playerHealthSignal;
 
         private Rigidbody2D playerRigidBody;
         private Animator animator;
@@ -103,11 +106,13 @@ namespace bebaSpace
         {
             if (playerRigidBody != null)
             {
+                cameraShake.Raise();
                 yield return new WaitForSeconds(knockTime);
 
                 playerRigidBody.velocity = Vector2.zero;
                 Playerstate = PlayerState.Idle;
                 playerRigidBody.velocity = Vector2.zero;
+
             }
         }
 

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9157572920790154873}
   - component: {fileID: 9157572920790154758}
+  - component: {fileID: 8245068000089194222}
+  - component: {fileID: 1595620997}
   m_Layer: 0
   m_Name: CameraContainer
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9157572920790154759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 32, y: 21, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,3 +62,32 @@ PolygonCollider2D:
       - {x: -0.52, y: -0.476}
       - {x: 0.475, y: -0.476}
       - {x: 0.475, y: 0.809}
+--- !u!114 &8245068000089194222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157572920790154759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208058a95f26e5f4cb00159175a320fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needPlaceName: 0
+  placeNamePlaceholder: {fileID: 0}
+  placeNameCanvas: {fileID: 0}
+  placeNameText: Aman Village
+--- !u!114 &1595620997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157572920790154759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f9e3e972167fe4fad39a4eee7fcb1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 0}
