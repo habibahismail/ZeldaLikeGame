@@ -547,10 +547,10 @@ TextureImporter:
     second: objects_180
   - first:
       213: 8106660113509146391
-    second: objects_181
+    second: button_up
   - first:
       213: 6924210257267458384
-    second: objects_182
+    second: button_down
   - first:
       213: 3767900862992024283
     second: objects_183
@@ -3999,7 +3999,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_181
+      name: button_up
       rect:
         serializedVersion: 2
         x: 0
@@ -4020,7 +4020,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_182
+      name: button_down
       rect:
         serializedVersion: 2
         x: 16

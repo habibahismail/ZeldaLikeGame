@@ -6,13 +6,21 @@ public class TreasureChest : Interactables
         [SerializeField] private Item contents;
         [SerializeField] private Inventory playerInventory;  
         [SerializeField] private Signal raiseItem;
+        [SerializeField] private BoolValue isOpenSavedValue;
 
         private bool isOpen;
         private Animator anim;
 
+
         private void Start()
         {
             anim = GetComponent<Animator>();
+            isOpen = isOpenSavedValue.RuntimeValue;
+
+            if (isOpen)
+            {
+                anim.SetTrigger("openChest");
+            }
         }
 
         protected override void Update()
@@ -25,6 +33,7 @@ public class TreasureChest : Interactables
                 dialogBoxIsShowing = false;
 
                 isOpen = true;
+                isOpenSavedValue.RuntimeValue = isOpen;
                 raiseItem.Raise();
 
             }

@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace bebaSpace
 {
+
     public enum DoorType { KEY, ENEMY, BUTTON }
 
     public class Door : Interactables
@@ -11,19 +10,57 @@ namespace bebaSpace
         [Header("Door Settings")]
         [SerializeField] private bool isOpen = false;
         [SerializeField] private DoorType doorType;
+        [SerializeField] private float closeYpos, openYpos;
+        [SerializeField] private float openingSpeed = 1f;
+
+        [Space]
         [SerializeField] private Inventory playerInventory;
 
-        private Animator animator;
+        private bool isOpening;
+        private GameObject theDoor;
         private BoxCollider2D theDoorCollider;
 
         private void Start()
         {
-            animator = GetComponentInParent<Animator>();
-            theDoorCollider = transform.parent.GetComponent<BoxCollider2D>();
+            theDoor = transform.parent.gameObject;
+            theDoorCollider = theDoor.GetComponent<BoxCollider2D>();
 
             if (isOpen)
             {
                 OpenDoor();
+            }
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+
+            Vector3 currentPos = theDoor.transform.localPosition;
+
+            if (isOpen && isOpening)
+            {
+                if(currentPos.y < openYpos)
+                {
+                    theDoor.transform.localPosition = Vector3.Lerp(currentPos,
+                        new Vector3(currentPos.x, openYpos, currentPos.z), openingSpeed * Time.deltaTime);
+    
+                }
+
+                if (Mathf.Ceil(theDoor.transform.localPosition.y) > openYpos )
+                    isOpening = false;
+
+            }
+            else if(!isOpen && isOpening)
+            {
+                if (currentPos.y > closeYpos)
+                {
+                    Debug.Log("close sesame.");
+                    theDoor.transform.position = Vector3.Lerp(currentPos,
+                        new Vector3(currentPos.x, closeYpos, currentPos.z), openingSpeed * Time.deltaTime);
+                }
+
+                if (closeYpos <= Mathf.Ceil(theDoor.transform.localPosition.y)) //macam salah nanti check balik
+                    isOpening = false;
             }
         }
 
@@ -48,7 +85,19 @@ namespace bebaSpace
                     
                     break;
                 case DoorType.ENEMY: break;
-                case DoorType.BUTTON: break;
+                case DoorType.BUTTON:
+
+                    if (!isOpen)
+                    {
+                        dialogText = "The door won't open.";
+                        ShowDialog();
+                    }
+                    else
+                    {
+                        OpenDoor();
+                    }
+
+                    break;
                 default: break;
             }
 
@@ -65,16 +114,18 @@ namespace bebaSpace
 
         private void OpenDoor()
         {
-            animator.SetBool("doorOpen", true);
-            theDoorCollider.enabled = false;
             isOpen = true;
+            isOpening = true;
+            
+            theDoorCollider.enabled = false;
         }
 
         private void CloseDoor()
         {
-            animator.SetBool("doorOpen", false);
-            theDoorCollider.enabled = true;
             isOpen = false;
+            isOpening = true;
+            theDoorCollider.enabled = true;
+            
         }
 
         protected override void OnTriggerEnter2D(Collider2D collision)
@@ -93,6 +144,12 @@ namespace bebaSpace
                 playerInRange = false;
                 contextSignal.Raise();
             }
+        }
+
+        public void OpenTheDoor()
+        {
+            isOpen = true;
+            DoAction();
         }
 
 

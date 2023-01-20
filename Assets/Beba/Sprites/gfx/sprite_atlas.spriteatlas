@@ -97,6 +97,7 @@ SpriteAtlas:
   - {fileID: 5069650035751226587, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: -8006292867793706052, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: -9105791295236327577, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
+  - {fileID: 6924210257267458384, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: -6484947575272461653, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: 1753205982242350755, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: 9083510519367365802, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
@@ -169,6 +170,7 @@ SpriteAtlas:
   - {fileID: -108185186312894436, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: 5477260236419233575, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: -4430392651179603617, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
+  - {fileID: 8106660113509146391, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: -2939925624408339868, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: -76596165655313214, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: -8914528431609462405, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
@@ -302,10 +304,8 @@ SpriteAtlas:
   - {fileID: 3350004809810163815, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: 907700638741623525, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: 2299536113050686144, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
-  - {fileID: 8106660113509146391, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: 3795051468279231379, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: 3767900862992024283, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
-  - {fileID: 6924210257267458384, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: -93750458980389090, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: 4455232240493665095, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
   - {fileID: 2269949439249822484, guid: 44d70e35c937a084480858a8bc4845d9, type: 3}
@@ -1919,6 +1919,7 @@ SpriteAtlas:
   - objects_6
   - heart04
   - objects_280
+  - button_down
   - objects_281
   - objects_0
   - objects_239
@@ -1991,6 +1992,7 @@ SpriteAtlas:
   - puff01
   - pot_04
   - heart_full
+  - button_up
   - questionMark_bubble
   - fire09
   - fire08
@@ -2124,10 +2126,8 @@ SpriteAtlas:
   - objects_186
   - dotdot_bubble_02
   - objects_195
-  - objects_181
   - objects_180
   - objects_183
-  - objects_182
   - treasurechest_04
   - treasurechest_02
   - treasurechest_03
