@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace bebaSpace
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "New Signal", menuName = "RPG/Signal")]
     public class Signal : ScriptableObject
     {
         public List<SignalListener> signalListeners = new List<SignalListener>();

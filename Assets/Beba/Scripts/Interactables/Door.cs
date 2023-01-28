@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace bebaSpace
 {
@@ -11,12 +12,12 @@ namespace bebaSpace
         [SerializeField] private bool isOpen = false;
         [SerializeField] private DoorType doorType;
         [SerializeField] private float closeYpos, openYpos;
-        [SerializeField] private float openingSpeed = 1f;
+        [SerializeField] private float doorAnimationDuration = 1f;
 
         [Space]
         [SerializeField] private Inventory playerInventory;
 
-        private bool isOpening;
+        //private bool isOpening;
         private GameObject theDoor;
         private BoxCollider2D theDoorCollider;
 
@@ -31,38 +32,6 @@ namespace bebaSpace
             }
         }
 
-        protected override void Update()
-        {
-            base.Update();
-
-            Vector3 currentPos = theDoor.transform.localPosition;
-
-            if (isOpen && isOpening)
-            {
-                if(currentPos.y < openYpos)
-                {
-                    theDoor.transform.localPosition = Vector3.Lerp(currentPos,
-                        new Vector3(currentPos.x, openYpos, currentPos.z), openingSpeed * Time.deltaTime);
-    
-                }
-
-                if (Mathf.Ceil(theDoor.transform.localPosition.y) > openYpos )
-                    isOpening = false;
-
-            }
-            else if(!isOpen && isOpening)
-            {
-                if (currentPos.y > closeYpos)
-                {
-                    Debug.Log("close sesame.");
-                    theDoor.transform.position = Vector3.Lerp(currentPos,
-                        new Vector3(currentPos.x, closeYpos, currentPos.z), openingSpeed * Time.deltaTime);
-                }
-
-                if (closeYpos <= Mathf.Ceil(theDoor.transform.localPosition.y)) //macam salah nanti check balik
-                    isOpening = false;
-            }
-        }
 
         protected override void DoAction()
         {
@@ -84,7 +53,11 @@ namespace bebaSpace
                     
                     
                     break;
-                case DoorType.ENEMY: break;
+                case DoorType.ENEMY:
+
+                    //do nothing here.
+
+                    break;
                 case DoorType.BUTTON:
 
                     if (!isOpen)
@@ -115,17 +88,41 @@ namespace bebaSpace
         private void OpenDoor()
         {
             isOpen = true;
-            isOpening = true;
-            
+
+            float xPos = theDoor.transform.localPosition.x;
+            Vector2 positionToMoveTo = new Vector2(xPos, openYpos);
+            StartCoroutine(LerpPosition(positionToMoveTo, doorAnimationDuration));
+
             theDoorCollider.enabled = false;
         }
 
         private void CloseDoor()
         {
             isOpen = false;
-            isOpening = true;
+
+            float xPos = theDoor.transform.localPosition.x;
+            Vector2 positionToMoveTo = new Vector2(xPos, closeYpos);
+            StartCoroutine(LerpPosition(positionToMoveTo, doorAnimationDuration));
+
             theDoorCollider.enabled = true;
-            
+
+            //disable the door trigger collider.
+            if (doorType == DoorType.ENEMY)
+                    gameObject.GetComponent<Collider2D>().enabled = false; 
+           
+        }
+
+        private IEnumerator LerpPosition(Vector2 targetPosition, float duration)
+        {
+            float time = 0;
+            Vector2 startPosition = theDoor.transform.localPosition;
+            while (time < duration)
+            {
+                theDoor.transform.localPosition = Vector2.Lerp(startPosition, targetPosition, time / duration);
+                time += Time.deltaTime;
+                yield return null;
+            }
+            transform.position = targetPosition;
         }
 
         protected override void OnTriggerEnter2D(Collider2D collision)
@@ -148,8 +145,22 @@ namespace bebaSpace
 
         public void OpenTheDoor()
         {
-            isOpen = true;
-            DoAction();
+            if (doorType == DoorType.ENEMY)
+            {
+                OpenDoor();
+            }
+            else
+            {
+                isOpen = true;
+                DoAction();
+
+            }
+
+        }
+
+        public void CloseTheDoor()
+        {
+            CloseDoor();
         }
 
 

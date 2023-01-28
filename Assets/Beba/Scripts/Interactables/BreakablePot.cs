@@ -4,6 +4,8 @@ namespace bebaSpace
 {
     public class BreakablePot : MonoBehaviour, IDamageable
     {
+        [SerializeField] private LootTable lootTable;
+
         private Animator animator;
         private Collider2D potCollider;
 
@@ -17,7 +19,8 @@ namespace bebaSpace
         {
             animator.SetTrigger("pot_break");
             potCollider.enabled = false;
-            
+
+            lootTable.GenerateLoot(lootTable, gameObject.transform);
         }
 
       

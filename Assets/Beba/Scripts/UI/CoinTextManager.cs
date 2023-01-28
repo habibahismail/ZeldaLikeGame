@@ -8,7 +8,11 @@ namespace bebaSpace
         [SerializeField] private Inventory playerInventory;
         [SerializeField] private TextMeshProUGUI coinDisplay;
 
-      
+        private void Awake()
+        {
+            UpdateCoinCount();
+        }
+
         public void UpdateCoinCount()
         {
             coinDisplay.text = playerInventory.coins.ToString("0000000");

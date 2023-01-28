@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02086556, y: -0.49729848}
+  m_Offset: {x: -0.017698288, y: -0.49729848}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8176129, y: 0.5185381}
+  m_Size: {x: 0.6971626, y: 0.5185381}
   m_EdgeRadius: 0
 --- !u!61 &8613596364898268323
 BoxCollider2D:
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01993084, y: -0.11709261}
+  m_Offset: {x: -0.0176754, y: -0.11709261}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -178,7 +178,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9038124, y: 1.1379976}
+  m_Size: {x: 0.79517746, y: 1.1379976}
   m_EdgeRadius: 0
 --- !u!114 &8613596364898268320
 MonoBehaviour:
@@ -192,14 +192,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a960a307f8651f54ca34884db243413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  moveSpeed: 1.5
   enemyName: Sleepy Log
+  maxHealth: {fileID: 11400000, guid: 9e56f08106af2304b93dfb058d9cf4da, type: 2}
+  homePosition: {x: 52, y: 0}
+  moveSpeed: 1.5
   baseAttack: 1
   deathEffect: {fileID: 1055947795252570994, guid: e1d995421ea8a7a4da79cdc31dfd7640,
     type: 3}
-  maxHealth: {fileID: 11400000, guid: 9e56f08106af2304b93dfb058d9cf4da, type: 2}
-  homePosition: {fileID: 0}
+  enemyDieSignal: {fileID: 11400000, guid: 7a266f1d50ca787439e7510ad6e96a42, type: 2}
+  lootTable: {fileID: 11400000, guid: ee6c4653f218d474988b7d126f33fb1e, type: 2}
   chaseRadius: 4
   attackRadius: 1.2
 --- !u!114 &8613596364898268322

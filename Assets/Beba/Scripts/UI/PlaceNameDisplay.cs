@@ -17,8 +17,6 @@ namespace bebaSpace
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Vector3 newCameraBoundPos = Vector3.zero;
-
             if (collision.CompareTag("Player"))
             {
                 if (needPlaceName)

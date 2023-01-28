@@ -198,6 +198,8 @@ GameObject:
   - component: {fileID: 1625130190}
   - component: {fileID: 1625130192}
   - component: {fileID: 1625130191}
+  - component: {fileID: 6483743835711434819}
+  - component: {fileID: 1625130193}
   m_Layer: 5
   m_Name: CoinText
   m_TagString: Untagged
@@ -251,7 +253,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00001
+  m_text: 0000001
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f182f7c9d32f5ab458b27a8631e1655c, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 596bf935f0e494b4996fd0447175c29c, type: 2}
@@ -320,6 +322,47 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6483743835711434819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625130189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d755c509f34f0489b6050eeee16cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signal: {fileID: 11400000, guid: c36c09248ed78ed44b05783888ba4fe4, type: 2}
+  signalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1625130193}
+        m_MethodName: UpdateCoinCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1625130193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625130189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333dac923c4d7794281caa66db528391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 11400000, guid: de1d9031ffd066943b015335a0cd565d, type: 2}
+  coinDisplay: {fileID: 1625130191}
 --- !u!1 &1647339498
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,9 +9,13 @@ namespace bebaSpace
 
         [SerializeField]  private float roundingDistance = 0.2f;
 
-
         private Transform currentGoal;
 
+        protected override void OnEnable()
+        {
+            homePosition = path[0].transform.position;
+            base.OnEnable();
+        }
         protected override void CheckDistance()
         {
             if (Vector3.Distance(target.position, transform.position) <= chaseRadius &&
@@ -25,7 +29,6 @@ namespace bebaSpace
                     rb.MovePosition(movePosition);
 
                     animator.SetBool("wakeUp", true);
-                    //ChangeState(EnemyState.Walk);
                 }
             }
             else if (Vector3.Distance(target.position, transform.position) > chaseRadius)

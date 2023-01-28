@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace bebaSpace { 
+namespace bebaSpace {
 
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "New Item", menuName = "RPG/Item")]
     public class Item : ScriptableObject
     {
         public Sprite itemSprite;

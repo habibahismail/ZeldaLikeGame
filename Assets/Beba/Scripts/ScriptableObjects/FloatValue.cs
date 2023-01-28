@@ -2,7 +2,7 @@
 
 namespace bebaSpace
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "New Float Value", menuName = "RPG/Float Value")]
     public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
     {
         public float InitialValue;

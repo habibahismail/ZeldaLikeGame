@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
-namespace bebaSpace { 
-[CreateAssetMenu]
-public class VectorValue : ScriptableObject, ISerializationCallbackReceiver
+namespace bebaSpace {
+
+    [CreateAssetMenu(fileName = "New Vector Value", menuName = "RPG/Vector Value")]
+    public class VectorValue : ScriptableObject, ISerializationCallbackReceiver
 {
     public Vector2 InitialValue;
     public Vector2 DefaultValue;

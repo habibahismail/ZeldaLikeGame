@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace bebaSpace
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "New BoolValue", menuName = "RPG/Bool Value")]
     public class BoolValue : ScriptableObject, ISerializationCallbackReceiver
     {
         public bool InitialValue;

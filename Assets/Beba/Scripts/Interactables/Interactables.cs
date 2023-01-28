@@ -15,8 +15,8 @@ namespace bebaSpace
         [SerializeField] private CanvasGroup dialogCanvas;
         [SerializeField] protected string dialogText;
 
-        protected bool playerInRange = false;
-        protected bool isInteracting = false;
+        [SerializeField] protected bool playerInRange = false;
+        [SerializeField] protected bool isInteracting = false;
         protected bool dialogBoxIsShowing = false;
 
         readonly float duration = 0.3f; // This will be your time in seconds.
@@ -34,8 +34,10 @@ namespace bebaSpace
 
             }
 
+            Debug.Log("Action button: " + Input.GetButtonDown("Action"));
             if (playerInRange && Input.GetButtonDown("Action") && !isInteracting)
             {
+                Debug.Log("isInteracting");
                 isInteracting = true;
                 DoAction();
             }

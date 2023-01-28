@@ -5,24 +5,37 @@ namespace bebaSpace
 {
     public class Enemy : MonoBehaviour, IDamageable
     {
-        [SerializeField] protected float health;
-        [SerializeField] protected float moveSpeed = 1.5f;
+        [Header("Enemy Settings")]
         [SerializeField] protected string enemyName;
-        [SerializeField] protected int baseAttack;
-        [SerializeField] protected GameObject deathEffect;
-
         [SerializeField] protected FloatValue maxHealth;
+        [SerializeField] protected Vector2 homePosition;
+        [SerializeField] protected float moveSpeed = 1.5f;
+        [SerializeField] protected int baseAttack;
+
+        [Space]
+        [SerializeField] protected GameObject deathEffect;
+        [SerializeField] protected Signal enemyDieSignal;
+        [SerializeField] protected LootTable lootTable;
 
         protected Animator animator;
+        protected float health;
 
         public EnemyState CurrentState { get; set; }
 
-        protected virtual void Start()
+        private void Awake()
         {
-            CurrentState = EnemyState.Idle;
             animator = GetComponent<Animator>();
-            health = maxHealth.InitialValue;
         }
+
+        protected virtual void OnEnable()
+        {
+            ResetEnemy();
+
+            health = maxHealth.InitialValue;
+            CurrentState = EnemyState.Idle;
+        }
+
+        protected virtual void Start() { }
 
         protected void ChangeState(EnemyState newState)
         {
@@ -40,6 +53,8 @@ namespace bebaSpace
                 Destroy(effect, 0.5f);
             }
         }
+
+
 
         private IEnumerator KnockbackEnemy(Rigidbody2D rb, float knockTime)
         {
@@ -65,8 +80,20 @@ namespace bebaSpace
             if(health <= 0)
             {
                 DeathFX();
+                lootTable.GenerateLoot(lootTable, gameObject.transform);
+
+                if(enemyDieSignal != null)
+                    enemyDieSignal.Raise();
+                
                 gameObject.SetActive(false);
+                
             }
+        }
+
+        public void ResetEnemy()
+        {
+            if (homePosition != null)
+                transform.position = homePosition;
         }
     }
 

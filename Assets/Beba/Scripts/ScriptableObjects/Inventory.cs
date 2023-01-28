@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace bebaSpace { 
-    [CreateAssetMenu]
+namespace bebaSpace {
+
+    [CreateAssetMenu(fileName = "New Inventory", menuName = "RPG/Inventory")]
     public class Inventory : ScriptableObject
     {
         public Item currentItem;

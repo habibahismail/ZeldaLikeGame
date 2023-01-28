@@ -207,14 +207,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b292b16e6ec315646907b3ce01b4bc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  moveSpeed: 1.5
   enemyName: Patrol Log
+  health: 2
+  maxHealth: {fileID: 11400000, guid: 9e56f08106af2304b93dfb058d9cf4da, type: 2}
+  homePosition: {x: 0, y: 0}
+  moveSpeed: 1.5
   baseAttack: 1
   deathEffect: {fileID: 1055947795252570994, guid: e1d995421ea8a7a4da79cdc31dfd7640,
     type: 3}
-  maxHealth: {fileID: 11400000, guid: 9e56f08106af2304b93dfb058d9cf4da, type: 2}
-  homePosition: {fileID: 0}
+  enemyDieSignal: {fileID: 0}
+  lootTable: {fileID: 11400000, guid: ee6c4653f218d474988b7d126f33fb1e, type: 2}
   chaseRadius: 4
   attackRadius: 1.6
   path:

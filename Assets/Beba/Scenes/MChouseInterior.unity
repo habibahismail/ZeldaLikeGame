@@ -2832,7 +2832,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004158139, y: 0}
+  m_Offset: {x: 0.004158139, y: 0.35565567}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2843,7 +2843,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2245386, y: 1}
+  m_Size: {x: 1.2245386, y: 0.28868866}
   m_EdgeRadius: 0
 --- !u!114 &766745423
 MonoBehaviour:
@@ -2953,7 +2953,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 0.3
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -4598,12 +4598,12 @@ PrefabInstance:
     - target: {fileID: 5686797827190317883, guid: cb4e80dcaf523e446914f39073d2483d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 5686797827190317883, guid: cb4e80dcaf523e446914f39073d2483d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.28
       objectReference: {fileID: 0}
     - target: {fileID: 5686797827190317883, guid: cb4e80dcaf523e446914f39073d2483d,
         type: 3}
@@ -4645,6 +4645,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5686797827190317886, guid: cb4e80dcaf523e446914f39073d2483d,
+        type: 3}
+      propertyPath: startingPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a747a53a94507e4d84362c1650279c7,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb4e80dcaf523e446914f39073d2483d, type: 3}
 --- !u!1 &1847334963
