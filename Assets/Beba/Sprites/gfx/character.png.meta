@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: cd67035784ae33946b5f3c9b7bfe1625
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8090365562718305141
+    second: player_face
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1363,6 +1366,27 @@ TextureImporter:
       bones: []
       spriteID: 96f1ad65db32eeca0800000000000000
       internalID: -5985807558615883927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_face
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 234
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b844f13a26f39bf80800000000000000
+      internalID: -8090365562718305141
       vertices: []
       indices: 
       edges: []

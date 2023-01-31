@@ -604,6 +604,7 @@ SpriteAtlas:
   - {fileID: -9156188058010517731, guid: cd67035784ae33946b5f3c9b7bfe1625, type: 3}
   - {fileID: 6237780861798913854, guid: cd67035784ae33946b5f3c9b7bfe1625, type: 3}
   - {fileID: -1550047302062183234, guid: cd67035784ae33946b5f3c9b7bfe1625, type: 3}
+  - {fileID: -8090365562718305141, guid: cd67035784ae33946b5f3c9b7bfe1625, type: 3}
   - {fileID: -4476149070206672133, guid: cd67035784ae33946b5f3c9b7bfe1625, type: 3}
   - {fileID: -5985807558615883927, guid: cd67035784ae33946b5f3c9b7bfe1625, type: 3}
   - {fileID: 3819713779883473424, guid: cd67035784ae33946b5f3c9b7bfe1625, type: 3}
@@ -2394,6 +2395,7 @@ SpriteAtlas:
   - character_23
   - character_22
   - character_109
+  - player_face
   - character_107
   - character_113
   - character_111

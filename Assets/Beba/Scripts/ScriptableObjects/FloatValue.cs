@@ -7,7 +7,7 @@ namespace bebaSpace
     {
         public float InitialValue;
 
-        [HideInInspector]
+        //[HideInInspector]
         public float RunTimeValue;
 
         public void OnAfterDeserialize()

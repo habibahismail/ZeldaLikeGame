@@ -7,6 +7,7 @@ namespace bebaSpace
     {
         [SerializeField] private float speed;
         [SerializeField] private FloatValue currentHealth;
+        [SerializeField] private FloatValue currentSP;
 
         [Space]
         [SerializeField] private VectorValue startingPosition;
@@ -16,6 +17,7 @@ namespace bebaSpace
         [Space]
         [SerializeField] private Signal cameraShake;
         [SerializeField] private Signal playerHealthSignal;
+        [SerializeField] private Signal playerUseSpSignal;
 
         [Space]
         [SerializeField] private GameObject swordProjectile;
@@ -114,15 +116,22 @@ namespace bebaSpace
 
         private IEnumerator SpecialAttack()
         {
-            animator.SetTrigger("attack");
-            Playerstate = PlayerState.Attack;
-            yield return null;
-
-            InstantiateProjectile();
-
-            if (playerstate != PlayerState.Interact)
+            if(currentSP.RunTimeValue >= 3)
             {
-                Playerstate = PlayerState.Walk;
+                currentSP.RunTimeValue -= 3;
+                playerUseSpSignal.Raise();
+
+                animator.SetTrigger("attack");
+                Playerstate = PlayerState.Attack;
+                yield return null;
+
+                InstantiateProjectile();
+
+                if (playerstate != PlayerState.Interact)
+                {
+                    Playerstate = PlayerState.Walk;
+                }
+
             }
         }
 
@@ -191,6 +200,11 @@ namespace bebaSpace
                 }
             }
 
+        }
+
+        public void AddSP()
+        {
+            currentSP.RunTimeValue += 2;
         }
     }
 
