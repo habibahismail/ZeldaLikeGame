@@ -7,13 +7,19 @@ namespace bebaSpace
     {
         [SerializeField] private float speed;
         [SerializeField] private FloatValue currentHealth;
-        
+
+        [Space]
         [SerializeField] private VectorValue startingPosition;
         [SerializeField] private Inventory playerInventory;
         [SerializeField] private SpriteRenderer receivedItemSprite;
         
+        [Space]
         [SerializeField] private Signal cameraShake;
         [SerializeField] private Signal playerHealthSignal;
+
+        [Space]
+        [SerializeField] private GameObject swordProjectile;
+
 
         private Rigidbody2D playerRigidBody;
         private Animator animator;
@@ -50,6 +56,10 @@ namespace bebaSpace
                 {
                     StartCoroutine(Attack());
 
+                }
+                else if (Input.GetButtonDown("SpecialAttack") && Playerstate != PlayerState.Attack && Playerstate != PlayerState.Stagger)
+                {
+                    StartCoroutine(SpecialAttack());
                 }
                 else if (Playerstate == PlayerState.Walk || Playerstate == PlayerState.Idle)
                 {
@@ -100,6 +110,33 @@ namespace bebaSpace
             { 
             Playerstate = PlayerState.Walk;
             }
+        }
+
+        private IEnumerator SpecialAttack()
+        {
+            animator.SetTrigger("attack");
+            Playerstate = PlayerState.Attack;
+            yield return null;
+
+            InstantiateProjectile();
+
+            if (playerstate != PlayerState.Interact)
+            {
+                Playerstate = PlayerState.Walk;
+            }
+        }
+
+        private void InstantiateProjectile()
+        {
+            float _moveX = animator.GetFloat("moveX");
+            float _moveY = animator.GetFloat("moveY");
+            
+            Vector2 temp = new Vector2(_moveX, _moveY );
+
+            Projectile projectile = Instantiate(swordProjectile,
+                transform.position, Quaternion.identity).GetComponent<Projectile>();
+
+            projectile.Setup(temp, projectile.ProjectileDirection(_moveX, _moveY));
         }
 
         private IEnumerator Knockback(float knockTime)

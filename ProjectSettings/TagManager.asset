@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Breakable
+  - CameraContainer
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - 
   - 
   - Player
-  - 
-  - 
+  - PlayerProjectile
+  - CameraContainer
   - 
   - 
   - 

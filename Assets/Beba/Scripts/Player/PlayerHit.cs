@@ -4,6 +4,8 @@ namespace bebaSpace
 {
     public class PlayerHit : MonoBehaviour
     {
+        [SerializeField] private float damageValue = 1f;
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
 
@@ -13,7 +15,7 @@ namespace bebaSpace
             {
 
                 if(collision.CompareTag("Breakable") || (collision.CompareTag("Enemy") && collision.isTrigger))
-                    damageable.TakeDamage(1);
+                    damageable.TakeDamage(damageValue);
 
             }
 

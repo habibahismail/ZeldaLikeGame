@@ -34,7 +34,6 @@ namespace bebaSpace
 
             }
 
-            Debug.Log("Action button: " + Input.GetButtonDown("Action"));
             if (playerInRange && Input.GetButtonDown("Action") && !isInteracting)
             {
                 Debug.Log("isInteracting");

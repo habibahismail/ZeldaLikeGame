@@ -14,7 +14,7 @@ namespace bebaSpace
             {
                 Rigidbody2D hit = collision.attachedRigidbody;
 
-                if(hit != null)
+                if(hit != null && damage != 0)
                 {
                     Vector2 difference = hit.transform.position - transform.position;
                     difference = difference.normalized * thrust;

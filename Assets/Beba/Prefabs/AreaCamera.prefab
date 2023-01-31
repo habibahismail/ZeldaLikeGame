@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4915257835531922692}
   - component: {fileID: 3916686215894494575}
   - component: {fileID: 5281844203468861525}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CameraContainer
-  m_TagString: Untagged
+  m_TagString: CameraContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onExitSignals:
   - {fileID: 11400000, guid: c075c82c5be817a42b71883c1302b2b5, type: 2}
+  onEnterSignals: []
 --- !u!1 &5281844203654833576
 GameObject:
   m_ObjectHideFlags: 0

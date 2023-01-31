@@ -17,7 +17,7 @@ namespace bebaSpace
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Player"))
+            if (collision.CompareTag("Player") && !collision.isTrigger)
             {
                 if (needPlaceName)
                 {
@@ -28,6 +28,7 @@ namespace bebaSpace
             }
         }
 
+        
         IEnumerator FadeInOutText()
         {
             float progress = 0; //This float will serve as the 3rd parameter of the lerp function.

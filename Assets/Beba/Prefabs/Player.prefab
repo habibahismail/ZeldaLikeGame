@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1301527859}
   m_Layer: 8
   m_Name: ContextClue
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1646417531}
   m_Layer: 8
   m_Name: ReceivedItem
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 5686797825675203204}
   m_Layer: 0
   m_Name: Hitbox_right
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,10 +250,10 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.36011255, y: 0.39153385}
-      - {x: 0.22241384, y: -0.491923}
-      - {x: 0.6291471, y: -0.76555526}
+      - {x: 0.23004991, y: -0.4690167}
+      - {x: 0.8200336, y: -1.0098895}
       - {x: 0.9975685, y: -0.21917726}
-      - {x: 0.6344058, y: 0.3400612}
+      - {x: 0.7183959, y: 0.57675934}
 --- !u!114 &5686797825675203207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbaaf5b5e6fd47b48b43ff3e688f021f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageValue: 1
 --- !u!1 &5686797825878331397
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +296,7 @@ GameObject:
   - component: {fileID: 5686797825878331449}
   m_Layer: 0
   m_Name: Hitbox_up
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -343,8 +344,8 @@ PolygonCollider2D:
       - {x: -0.22462258, y: 0.5014907}
       - {x: 0.21936373, y: 0.16577034}
       - {x: 0.38910243, y: -0.3557719}
-      - {x: 0.73981565, y: -0.27762336}
-      - {x: 0.62198806, y: 0.48907354}
+      - {x: 0.80853456, y: -0.25471705}
+      - {x: 0.80523944, y: 0.67232394}
 --- !u!114 &5686797825878331448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbaaf5b5e6fd47b48b43ff3e688f021f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageValue: 1
 --- !u!1 &5686797826542524123
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +388,7 @@ GameObject:
   - component: {fileID: 5686797826542524127}
   m_Layer: 0
   m_Name: Hitbox_down
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,11 +432,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.08717248, y: -0.40146482}
-      - {x: -0.6023667, y: -0.08661161}
-      - {x: -0.49390712, y: -0.8425449}
-      - {x: 0.37516382, y: -1.0863838}
-      - {x: 0.4105999, y: -0.40353832}
+    - - {x: 0.21697518, y: -0.22584951}
+      - {x: -0.27438068, y: -0.07820606}
+      - {x: -0.90778375, y: -0.010256633}
+      - {x: -0.79932415, y: -0.621117}
+      - {x: -0.33186436, y: -1.1203461}
+      - {x: 0.29117373, y: -1.1321964}
+      - {x: 0.31897467, y: -0.34245452}
 --- !u!114 &5686797826542524126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbaaf5b5e6fd47b48b43ff3e688f021f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageValue: 1
 --- !u!1 &5686797826980720860
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +481,7 @@ GameObject:
   - component: {fileID: 5686797826980720848}
   m_Layer: 0
   m_Name: Hitbox_left
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -520,10 +525,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.85061073, y: 0.37290734}
-      - {x: -0.92622095, y: -0.40499917}
-      - {x: -0.44498193, y: -0.8586877}
-      - {x: 0.0041544437, y: -0.3992337}
+    - - {x: -1.0491314, y: 0.53325146}
+      - {x: -0.97203356, y: -0.38972893}
+      - {x: -0.75803506, y: -1.0648434}
+      - {x: -0.041658163, y: -0.40686977}
       - {x: -0.3217553, y: -0.06351319}
 --- !u!114 &5686797826980720851
 MonoBehaviour:
@@ -552,6 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbaaf5b5e6fd47b48b43ff3e688f021f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageValue: 1
 --- !u!1 &5686797827190317882
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,11 +663,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   currentHealth: {fileID: 11400000, guid: 0a70ed77c6c7eb24c993ca2e6a044a23, type: 2}
-  startingPosition: {fileID: 11400000, guid: c4ee144e8e8d0654b8029dccc841a79d, type: 2}
+  startingPosition: {fileID: 11400000, guid: cb222e6e4fc70784a8c0ffdfc2c999f5, type: 2}
   playerInventory: {fileID: 11400000, guid: de1d9031ffd066943b015335a0cd565d, type: 2}
   receivedItemSprite: {fileID: 1646417530}
   cameraShake: {fileID: 11400000, guid: 971c4a19ef7fd8f44b3ae1eb6d7cff30, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: 93579b4d07348004bbe242b999e0d65e, type: 2}
+  swordProjectile: {fileID: 995464546209027253, guid: 7cd1c7ab9cad8024197d76d676c61d21,
+    type: 3}
   playerstate: 0
 --- !u!95 &5686797827190317884
 Animator:
