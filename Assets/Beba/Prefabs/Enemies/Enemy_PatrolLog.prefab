@@ -126,7 +126,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &5188716314653993601
 BoxCollider2D:
@@ -208,9 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Patrol Log
-  health: 2
   maxHealth: {fileID: 11400000, guid: 9e56f08106af2304b93dfb058d9cf4da, type: 2}
-  homePosition: {x: 0, y: 0}
+  homePosition: {x: -32, y: 10.78}
   moveSpeed: 1.5
   baseAttack: 1
   deathEffect: {fileID: 1055947795252570994, guid: e1d995421ea8a7a4da79cdc31dfd7640,
@@ -218,7 +217,7 @@ MonoBehaviour:
   enemyDieSignal: {fileID: 0}
   lootTable: {fileID: 11400000, guid: ee6c4653f218d474988b7d126f33fb1e, type: 2}
   chaseRadius: 4
-  attackRadius: 1.6
+  attackRadius: 0.8
   path:
   - {fileID: 0}
   - {fileID: 0}

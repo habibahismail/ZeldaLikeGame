@@ -481,6 +481,8 @@ GameObject:
   - component: {fileID: 911556110}
   - component: {fileID: 911556111}
   - component: {fileID: 1941772869591430861}
+  - component: {fileID: 8611520507422872165}
+  - component: {fileID: 911556112}
   m_Layer: 5
   m_Name: SP Slider
   m_TagString: Untagged
@@ -574,6 +576,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spSlider: {fileID: 911556111}
   playerSP: {fileID: 11400000, guid: a23e12ab6e350c44c8bd0f7ebb0b4875, type: 2}
+  spIncreaseValue: 2
+  spDecreaseValue: 3
+--- !u!114 &8611520507422872165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911556109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d755c509f34f0489b6050eeee16cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signal: {fileID: 11400000, guid: 32a7cb88a28e2c042957edf27241c457, type: 2}
+  signalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1941772869591430861}
+        m_MethodName: IncreaseSP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &911556112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911556109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d755c509f34f0489b6050eeee16cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signal: {fileID: 11400000, guid: bc97ed10dcd0cb346a50fbf6f6d81fd7, type: 2}
+  signalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1941772869591430861}
+        m_MethodName: DecreaseSP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1091939420
 GameObject:
   m_ObjectHideFlags: 0

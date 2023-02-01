@@ -10,11 +10,11 @@ namespace bebaSpace
         [SerializeField] private FloatValue currentSP;
 
         [Space]
-        [SerializeField] private VectorValue startingPosition;
         [SerializeField] private Inventory playerInventory;
+        [SerializeField] private VectorValue startingPosition;
         [SerializeField] private SpriteRenderer receivedItemSprite;
         
-        [Space]
+        [Header("Event Signals")]
         [SerializeField] private Signal cameraShake;
         [SerializeField] private Signal playerHealthSignal;
         [SerializeField] private Signal playerUseSpSignal;
@@ -67,6 +67,7 @@ namespace bebaSpace
                 {
                     updateMove = true;
                 }
+
             }
         }
 
@@ -169,8 +170,7 @@ namespace bebaSpace
             playerHealthSignal.Raise();
 
             if (currentHealth.RunTimeValue > 0)
-            {
-                
+            {                
                 StartCoroutine(Knockback(knockTime));
             }
             else
@@ -205,6 +205,19 @@ namespace bebaSpace
         public void AddSP()
         {
             currentSP.RunTimeValue += 2;
+        }
+
+        //temp hack function to revive the player in testing.
+        public void RevivePlayer()
+        {
+            currentHealth.RunTimeValue = currentHealth.InitialValue;
+            Playerstate = PlayerState.Idle;
+            updateMove = false;
+
+            animator.SetFloat("moveX", 0);
+            animator.SetFloat("moveY", -1);
+
+            playerHealthSignal.Raise();
         }
     }
 

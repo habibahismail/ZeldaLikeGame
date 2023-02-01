@@ -27,6 +27,16 @@ namespace bebaSpace {
                 }
             }
         }
+
+        public bool CheckInventoryIfItemExist(Item item)
+        {
+            if (items.Contains(item))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 
     

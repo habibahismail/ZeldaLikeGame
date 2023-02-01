@@ -6,8 +6,6 @@ namespace bebaSpace
 {
     public class SpPotion : PowerUp
     {
-
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
@@ -15,11 +13,8 @@ namespace bebaSpace
                 powerUpSignal.Raise();
                 Destroy(gameObject);
             }
-                
-
 
         }
-
     }
 
 }

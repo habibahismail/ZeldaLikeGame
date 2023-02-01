@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a559147601cfdf74b947c36db5f8e35c, type: 3}
+  m_Name: MagicSword
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: -68751727340038015, guid: 28d0be6a25cb63946b34f588a51e5000,
+    type: 3}
+  itemDescription: It's a magic sword given by The Hermit which allow Alif to perform
+    special attack.
+  isKey: 0

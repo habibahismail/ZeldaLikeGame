@@ -3,10 +3,13 @@ using UnityEngine.UI;
 
 namespace bebaSpace
 {
+
     public class SpManager : MonoBehaviour
     {
         [SerializeField] private Slider spSlider;
         [SerializeField] private FloatValue playerSP;
+        [SerializeField] private float spIncreaseValue;
+        [SerializeField] private float spDecreaseValue;
 
         private void Start()
         {
@@ -14,22 +17,21 @@ namespace bebaSpace
             spSlider.value = playerSP.InitialValue;
         }
 
-        public void IncreaseSP(int spValue)
+        public void IncreaseSP()
         {
-            spSlider.value += spValue;
+            spSlider.value += spIncreaseValue;
 
             if (spSlider.value > spSlider.maxValue)
                 spSlider.value = spSlider.maxValue;
         }
 
-        public void DecreaseSP(int spValue)
+        public void DecreaseSP()
         {
-            spSlider.value -= spValue;
+            spSlider.value -= spDecreaseValue;
 
             if (spSlider.value < 0)
                 spSlider.value = 0;
         }
-
 
     }
 }
