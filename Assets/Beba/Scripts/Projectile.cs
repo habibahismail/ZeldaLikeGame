@@ -16,8 +16,11 @@ namespace bebaSpace
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-                if(!collision.isTrigger)
-                    Destroy(gameObject);
+            if(!collision.isTrigger)
+                Destroy(gameObject);
+
+            if (collision.CompareTag("Enemy"))
+                Destroy(gameObject);
         }
 
         public Vector3 ProjectileDirection(float x, float y)
