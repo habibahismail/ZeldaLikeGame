@@ -1,27 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace bebaSpace
 {
+    [System.Serializable]
     [CreateAssetMenu(fileName = "New BoolValue", menuName = "RPG/Bool Value")]
-    public class BoolValue : ScriptableObject, ISerializationCallbackReceiver
+    public class BoolValue : ScriptableObject
     {
         public bool InitialValue;
-        
-        [HideInInspector]
         public bool RuntimeValue;
 
-        public void OnAfterDeserialize()
-        {
-            RuntimeValue = InitialValue;
-        }
+       // private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
 
-        public void OnBeforeSerialize()
-        {
-            
-        }
     }
 
 }

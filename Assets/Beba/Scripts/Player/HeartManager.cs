@@ -15,14 +15,18 @@ namespace bebaSpace
         private void Start()
         {
             InitHearts();
+            UpdateHearts();
         }
 
         public void InitHearts()
         {
-            for (int i = 0; i < heartContainers.InitialValue; i++)
+            for (int i = 0; i < heartContainers.RunTimeValue; i++)
             {
-                hearts[i].sprite = fullHeart;
-                hearts[i].gameObject.SetActive(true);
+                if (i < hearts.Length)
+                {
+                    hearts[i].sprite = fullHeart;
+                    hearts[i].gameObject.SetActive(true);
+                }
             }
         }
 

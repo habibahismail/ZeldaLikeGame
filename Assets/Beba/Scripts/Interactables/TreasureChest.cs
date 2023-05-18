@@ -33,6 +33,7 @@ public class TreasureChest : Interactables
                 dialogBoxIsShowing = false;
 
                 isOpen = true;
+                Debug.Log(isOpen + "<-- is Open?");
                 isOpenSavedValue.RuntimeValue = isOpen;
                 raiseItem.Raise();
 

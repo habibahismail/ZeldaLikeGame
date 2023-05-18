@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace bebaSpace {
 
+    [System.Serializable]
     [CreateAssetMenu(fileName = "New Inventory", menuName = "RPG/Inventory")]
     public class Inventory : ScriptableObject
     {

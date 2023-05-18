@@ -13,11 +13,18 @@ namespace bebaSpace
         [SerializeField] private Inventory playerInventory;
         [SerializeField] private VectorValue startingPosition;
         [SerializeField] private SpriteRenderer receivedItemSprite;
-        
+
         [Header("Event Signals")]
         [SerializeField] private Signal cameraShake;
         [SerializeField] private Signal playerHealthSignal;
         [SerializeField] private Signal playerUseSpSignal;
+
+        [Header("I-Frame")]
+        [SerializeField] Color flashColor;
+        [SerializeField] Color regularColor;
+        [SerializeField] private Collider2D triggerCollider;
+        [SerializeField] float flashDuration;
+        [SerializeField] int numberOfFlashes;
 
         [Space]
         [SerializeField] private GameObject swordProjectile;
@@ -27,8 +34,10 @@ namespace bebaSpace
         private Animator animator;
         private Vector3 change;
 
-        [SerializeField] private PlayerState playerstate;
+        private PlayerState playerstate;
         private bool updateMove;
+
+        private SpriteRenderer spriteRenderer;
 
         public PlayerState Playerstate { get => playerstate; set => playerstate = value; }
 
@@ -36,6 +45,8 @@ namespace bebaSpace
         {
             playerRigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            
 
             Playerstate = PlayerState.Idle;
             updateMove = false;
@@ -154,6 +165,7 @@ namespace bebaSpace
             if (playerRigidBody != null)
             {
                 cameraShake.Raise();
+                StartCoroutine(FlashCO());
                 yield return new WaitForSeconds(knockTime);
 
                 playerRigidBody.velocity = Vector2.zero;
@@ -161,6 +173,24 @@ namespace bebaSpace
                 playerRigidBody.velocity = Vector2.zero;
 
             }
+        }
+
+        private IEnumerator FlashCO()
+        {
+            int temp = 0;
+            triggerCollider.enabled = false;
+
+            while(temp < numberOfFlashes)
+            {
+                spriteRenderer.color = flashColor;
+                yield return new WaitForSeconds(flashDuration);
+                spriteRenderer.color = regularColor;
+                yield return new WaitForSeconds(flashDuration);
+
+                temp++;
+            }
+
+            triggerCollider.enabled = true;
         }
 
         public void KnockbackPlayer(float knockTime, float damage)

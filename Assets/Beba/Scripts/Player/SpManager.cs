@@ -14,7 +14,7 @@ namespace bebaSpace
         private void Start()
         {
             spSlider.maxValue = playerSP.InitialValue;
-            spSlider.value = playerSP.InitialValue;
+            spSlider.value = playerSP.RunTimeValue;
         }
 
         public void IncreaseSP()

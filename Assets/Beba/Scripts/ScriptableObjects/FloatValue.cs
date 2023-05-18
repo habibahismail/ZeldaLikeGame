@@ -2,21 +2,12 @@
 
 namespace bebaSpace
 {
+    [System.Serializable]
     [CreateAssetMenu(fileName = "New Float Value", menuName = "RPG/Float Value")]
-    public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
+    public class FloatValue : ScriptableObject
     {
         public float InitialValue;
-
-        //[HideInInspector]
         public float RunTimeValue;
 
-        public void OnAfterDeserialize()
-        {
-            RunTimeValue = InitialValue;
-        }
-
-        public void OnBeforeSerialize()
-        {
-        }
     }
 }

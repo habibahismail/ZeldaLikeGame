@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace bebaSpace {
 
+    [System.Serializable]
     [CreateAssetMenu(fileName = "New Item", menuName = "RPG/Item")]
     public class Item : ScriptableObject
     {
