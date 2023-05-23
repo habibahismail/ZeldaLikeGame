@@ -8,6 +8,7 @@ namespace bebaSpace
     public class BoundedNPC : Interactables
     {
         [SerializeField] private Collider2D bound;
+        [SerializeField] private Collider2D NPCBodyCollider;
         [SerializeField] private float speed = 5;
         [Space]
         [SerializeField] private float minMoveTime, maxMoveTime;
@@ -26,6 +27,7 @@ namespace bebaSpace
 
         private void Start()
         {
+            NPCBodyCollider.enabled = false;
             animator = GetComponent<Animator>();
             npcTransform = GetComponent<Transform>();
             rb = GetComponent<Rigidbody2D>();
@@ -48,6 +50,7 @@ namespace bebaSpace
                 {
                     canMove = false;
                     animator.SetBool("isWalking", false);
+                    NPCBodyCollider.enabled = true;
                 }
                 else
                 {
@@ -61,6 +64,7 @@ namespace bebaSpace
                     }
 
                     canMove = true;
+                    NPCBodyCollider.enabled = false;
                 }
                 
                 if(canMove)

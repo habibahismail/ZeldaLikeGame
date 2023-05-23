@@ -143,6 +143,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpSignal: {fileID: 11400000, guid: 93579b4d07348004bbe242b999e0d65e, type: 2}
-  playerHealth: {fileID: 11400000, guid: 0a70ed77c6c7eb24c993ca2e6a044a23, type: 2}
-  heartContainers: {fileID: 11400000, guid: efb7ca28acef8e840a446f090ff4d46e, type: 2}
-  amountToIncrease: 2
+  currentHealth: {fileID: 11400000, guid: 0a70ed77c6c7eb24c993ca2e6a044a23, type: 2}
+  amountToHeal: 2

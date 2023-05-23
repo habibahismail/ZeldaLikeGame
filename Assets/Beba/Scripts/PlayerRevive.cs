@@ -4,13 +4,13 @@ namespace bebaSpace
 {
     public class PlayerRevive : MonoBehaviour
     {
-        [SerializeField] private PlayerMovement player;
+        [SerializeField] private PlayerHealth player;
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                player.gameObject.SetActive(true);
+                player.transform.parent.GetComponent<SpriteRenderer>().enabled = true;
                 player.RevivePlayer();
             }
         }

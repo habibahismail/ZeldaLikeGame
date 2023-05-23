@@ -3,10 +3,9 @@ using UnityEngine;
 
 namespace bebaSpace
 {
-    public class PlayerMovement : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         [SerializeField] private float speed;
-        [SerializeField] private FloatValue currentHealth;
         [SerializeField] private FloatValue currentSP;
 
         [Space]
@@ -16,7 +15,6 @@ namespace bebaSpace
 
         [Header("Event Signals")]
         [SerializeField] private Signal cameraShake;
-        [SerializeField] private Signal playerHealthSignal;
         [SerializeField] private Signal playerUseSpSignal;
 
         [Header("I-Frame")]
@@ -38,6 +36,7 @@ namespace bebaSpace
         private bool updateMove;
 
         private SpriteRenderer spriteRenderer;
+        private PlayerHealth playerHealth;
 
         public PlayerState Playerstate { get => playerstate; set => playerstate = value; }
 
@@ -46,6 +45,7 @@ namespace bebaSpace
             playerRigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            playerHealth = GetComponentInChildren<PlayerHealth>();
             
 
             Playerstate = PlayerState.Idle;
@@ -199,18 +199,12 @@ namespace bebaSpace
 
         public void KnockbackPlayer(float knockTime, float damage)
         {
+            playerHealth.TakeDamage(damage);
 
-            currentHealth.RunTimeValue -= damage;
-            playerHealthSignal.Raise();
-
-            if (currentHealth.RunTimeValue > 0)
-            {                
-                StartCoroutine(Knockback(knockTime));
-            }
+            if (playerHealth.GetCurrentHealth() == 0)
+                spriteRenderer.enabled = false; // ded!
             else
-            {
-                gameObject.SetActive(false);
-            }
+                StartCoroutine(Knockback(knockTime));
         } 
 
         public void RaiseItem()
@@ -241,18 +235,6 @@ namespace bebaSpace
             currentSP.RunTimeValue += 2;
         }
 
-        //temp hack function to revive the player in testing.
-        public void RevivePlayer()
-        {
-            currentHealth.RunTimeValue = currentHealth.InitialValue;
-            Playerstate = PlayerState.Idle;
-            updateMove = false;
-
-            animator.SetFloat("moveX", 0);
-            animator.SetFloat("moveY", -1);
-
-            playerHealthSignal.Raise();
-        }
     }
 
     public enum PlayerState { Idle, Walk, Attack, Interact, Stagger }
