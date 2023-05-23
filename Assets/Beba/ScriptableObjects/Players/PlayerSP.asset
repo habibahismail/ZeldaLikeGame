@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerSP
   m_EditorClassIdentifier: 
   InitialValue: 10
-  RunTimeValue: 10
+  RunTimeValue: 7
