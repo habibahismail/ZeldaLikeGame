@@ -37,6 +37,7 @@ namespace bebaSpace
 
         private SpriteRenderer spriteRenderer;
         private PlayerHealth playerHealth;
+        private CameraShake camerashake;
 
         public PlayerState Playerstate { get => playerstate; set => playerstate = value; }
 
@@ -46,6 +47,7 @@ namespace bebaSpace
             animator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             playerHealth = GetComponentInChildren<PlayerHealth>();
+            camerashake = GetComponent<CameraShake>();
             
 
             Playerstate = PlayerState.Idle;
@@ -172,9 +174,9 @@ namespace bebaSpace
                 StartCoroutine(FlashCO());
                 yield return new WaitForSeconds(knockTime);
 
-                playerRigidBody.velocity = Vector2.zero;
+                playerRigidBody.linearVelocity = Vector2.zero;
                 Playerstate = PlayerState.Idle;
-                playerRigidBody.velocity = Vector2.zero;
+                playerRigidBody.linearVelocity = Vector2.zero;
 
             }
         }
@@ -200,6 +202,7 @@ namespace bebaSpace
         public void KnockbackPlayer(float knockTime, float damage)
         {
             playerHealth.TakeDamage(damage);
+            camerashake.ShakeCamera();
 
             if (playerHealth.GetCurrentHealth() == 0)
                 spriteRenderer.enabled = false; // ded!

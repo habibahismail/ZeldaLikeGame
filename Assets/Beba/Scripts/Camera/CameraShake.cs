@@ -1,45 +1,21 @@
 ﻿using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 
 namespace bebaSpace
 {
+    [RequireComponent(typeof(CinemachineImpulseSource))]
     public class CameraShake : MonoBehaviour
     {
-        [SerializeField] private float intensity = 5f;
-        [SerializeField] private float time = 0.5f;
+        private CinemachineImpulseSource cameraShake;
 
-        private void Update()
+        private void Start()
         {
-            if(shakeTimer > 0) { 
-                shakeTimer -= Time.deltaTime;
-
-                if(shakeTimer <= 0f)
-                {
-                    CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
-                cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
-                }
-            }
-
-        }
-
-        private CinemachineVirtualCamera cinemachineVirtualCamera;
-        float shakeTimer;
-
-            private void Awake()
-        {
-            cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
+            cameraShake = GetComponent<CinemachineImpulseSource>();
         }
 
         public void ShakeCamera()
         {
-            CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
-                cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-
-            cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = intensity;
-            shakeTimer = time;
+            cameraShake.GenerateImpulse();
         }
-
     }
 }

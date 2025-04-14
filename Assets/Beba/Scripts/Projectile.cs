@@ -10,7 +10,7 @@ namespace bebaSpace
 
         public void Setup(Vector2 velocity, Vector3 direction)
         {
-            rb.velocity = velocity.normalized * speed;
+            rb.linearVelocity = velocity.normalized * speed;
             transform.rotation = Quaternion.Euler(direction);
         }
 
